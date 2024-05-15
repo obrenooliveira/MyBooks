@@ -1,0 +1,16 @@
+<div class="rating" [ngClass]="{'rating-form': useForm}">
+  <ng-container *ngIf="useForm; else noForm">
+    <span *ngFor="let star of stars; let i = index" (click)="rate(i + 1)">
+      <ng-container *ngIf="star; else noStar"><i class="fa-solid fa-star rating__star"></i></ng-container>
+      <ng-template #noStar><i class="fa-regular fa-star rating__star"></i></ng-template>
+    </span>
+  </ng-container>
+
+  <ng-template #noForm>
+    <span *ngFor="let star of stars">
+      <ng-container *ngIf="star; else noStar"><i class="fa-solid fa-star rating__star"></i></ng-container>
+      <ng-template #noStar><i class="fa-regular fa-star rating__star"></i></ng-template>
+    </span>
+  </ng-template>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="d-flex mt-3 mb-3 justify-content-end">
+  <a class="btn btn-primary btn-adding-book" routerLink="/novo">
+    <i class="fa-solid fa-plus"></i> Novo livro
+  </a>
+</div>
+
+<div class="cards">
+  <div class="card" *ngFor="let book of books$ | async">
+    <img [src]="book.cover" alt="capa do livro {{book.title}}" class="card__image">
+    <div class="card__container">
+      <h4 class="card__title">{{book.title}}</h4>
+      <p class="card__author">{{book.author}}</p>
+      <ng-container *ngIf="book.rating">
+        <star-rating [rating]="book.rating"></star-rating>
+      </ng-container>
+      <p>{{book.pages}} páginas</p>
+      <button class="btn btn-outline-dark card__remove" (click)="removeBook(book.id!)">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>

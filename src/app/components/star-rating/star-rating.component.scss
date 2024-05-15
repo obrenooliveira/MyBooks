@@ -1,0 +1,16 @@
+.rating {
+  margin-bottom: 1rem;
+  &__star {
+    color: #FFCC00;
+  }
+
+  &-form {
+    margin-bottom: 0;
+    display: flex;
+    gap: .313rem;
+    .rating__star {
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+  }
+}
